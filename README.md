@@ -42,6 +42,20 @@ with permissions beyond their role definition.
 
 ---
 
+### 4. Transitive Access Finder - IAM Privilege Escalation Detection
+Identifies users who have access to sensitive resources through group 
+memberships - the same logic used in IAM access reviews and SoD 
+violation detection.
+
+- Technique: Nested iteration, set membership check
+- Time complexity: O(u × g × r) - users × groups × resources
+- Real-world use: Privileged access reviews, SoD violation detection 
+  in SailPoint and Saviynt
+
+[View solution](./transitive-access-finder/solution.py)
+
+---
+
 ## Why these problems
 
 These scripts mirror real detection logic used in SOC operations and 
@@ -51,5 +65,7 @@ IAM governance:
 - Anomalous login detector → the logic behind lateral movement alerts in SIEM
 - Permission baseline checker → the logic behind automated access reviews 
   in SailPoint and Saviynt
+- Transitive access finder → the logic behind SoD violation detection 
+  and privileged access reviews in enterprise IAM platforms
 
 Built as part of ongoing security engineering practice.
